@@ -1,44 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Available Scripts
+#### Get Started
 
-In the project directory, you can run:
+1. You first need to fork the repo(https://github.com/johir-rayhan/eract).
+2. Clone your own private repo
 
-### `npm start`
+   ```
+   $ git clone git@github.com:<username>/eract.git
+   ```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Add remote upstream
+   ```
+   $ git remote add upstream git@github.com:johir-rayhan/eract.git
+   ```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### Creating a PR
 
-### `npm test`
+> DON'T USE `git pull` command for updating other changes, you can use `git fetch` and `git rebase` to update changes from `upstream`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fetch the upstream
 
-### `npm run build`
+   ```
+   $ git fetch upstream
+   ```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Rebase to _`upstream/dev`_ to update changes from others
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+   ```
+   $ git rebase upstream/dev
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   _If you have conflict , you have to resolve each conflict on each commit , do it manually or add `kdiff3` / `Beyond Compare` or anything that fit you , add these modification and do `$ git rebase --continue` until you cleared the conflicts._
 
-### `npm run eject`
+3. Do your work, _make commits_, you should create directly a PR and _push your work frequently_.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Test your code.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. You can now push your code.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- If the branch is new you just run `$ git push origin myNewBranch`
+- If you had rebase you need to force the `$ git push origin myNewBranch -f`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+6. Create the PR from new commits of `origin` into `upstream/dev`.
 
-## Learn More
+**More you rebase your branch often, less you get problems. So don't wait ! You should rebase each time a commit is added to the upstream/dev.**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**DISCLAIMER** : Use _`push -f`_ only with **Fork and PR project** like here, never on a project were everyone is working on the **same remote**. Your rewrite commits history.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> DON'T MERGE yourself PR, it should be accomplished by Project Manager or Git Manager after review.
+
+**Do _`Squash and merge`_ so that `upstream`'s commits history is not messy.**
+
+### Run app
+
+```
+$ yarn
+$ yarn start
+```
+
+### Server URLs
+
+- Develop server: https://eract-api.herokuapp.com/reshare_public
+- Production server: https://.......
+
+### Help links:
+
+- Link to a process diagrams:
+- Link to a process diagram:
+- User Stories
+- Schema Spreadsheet:
+
+## Github Workflow
+
+This project uses the git forking workflow, https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow
+
+Write commit messages "in the imperative mood". Read this if you haven't already: http://chris.beams.io/posts/git-commit/
+
+Each commit should do one thing. It's no problem making lots of small commits, it's actualy much better than infrequent large commit because they are easier to review.
+
+We use the Pull Request system of github.
+
+`dev` branch is just our `master` branch.
+
+```
+
+```
