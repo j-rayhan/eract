@@ -1,0 +1,14 @@
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "on",
+    "[javascript]": {
+      "editor.formatOnSave": true
+    },
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "files.autoSave": "off",
+    "window.zoomLevel": 0,
+    "flow.pathToFlow": "flow",
+    "flow.useNPMPackagedFlow": true,
+    "tslint.autoFixOnSave": true
