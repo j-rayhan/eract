@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "connected-react-router": "^4.5.0",
     "flow-bin": "^0.87.0",
+    "history": "^4.7.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-lazyload": "^2.3.0",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.2",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0"
   },
@@ -26,6 +35,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "engines": {
+    "node": ">= 8.10.0",
+    "npm": ">= 5.6.0"
+  },
+  "engineStrict": true,
   "browserslist": [
     ">0.2%",
     "not dead",

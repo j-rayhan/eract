@@ -1,36 +1,43 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { push } from "connected-react-router";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import { Button } from "semantic-ui-react";
-import logo from "./logo.svg";
 import "./App.css";
 import { GEOIP_SERVICE_URL } from "./config";
 
-class App extends Component {
-  state = {
-    userLocation: ""
-  };
-  componentDidMount() {
-    fetch(GEOIP_SERVICE_URL)
-      .then(response => response.json())
-      .then(data => this.setState({ userLocation: data }));
-  }
+class Home extends Component {
   render() {
-    console.log("PRINT IN %s=====>", "App", this.state);
-    console.log("PRINT IN %s=====>", "App", GEOIP_SERVICE_URL);
     return (
       <div className="App">
         <a>Learn React</a>
-        <ButtonExampleEmphasis />
+        <ButtonExampleEmphasis {...this.props} />
       </div>
     );
   }
 }
 
-const ButtonExampleEmphasis = () => (
+const ButtonExampleEmphasis = props => (
   <div>
-    <Button primary>Primary</Button>
-    <Button secondary>Secondary</Button>
+    <Button primary onClick={() => props.changePage("/login")}>
+      Primary
+    </Button>
+    <Button secondary onClick={() => props.changePage("/sing-up")}>
+      Secondary
+    </Button>
   </div>
 );
 
-export default App;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      changePage: e => push(e)
+    },
+    dispatch
+  );
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);
